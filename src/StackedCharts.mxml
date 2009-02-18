@@ -14,7 +14,7 @@
   ]]>
 </mx:Script>
 
- <!-- Use column chart as a separate component -->
+  <!-- Use column chart as a separate component -->
   <chart:OverlaidColumnChart
    id="colChart"
    x="10" y="10"
