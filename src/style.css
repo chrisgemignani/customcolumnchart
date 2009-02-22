@@ -1,0 +1,22 @@
+
+
+@font-face {
+    src: url("./Arial.ttf");
+    fontFamily: ArialEmbedded;
+    advancedAntiAliasing: true;
+}
+
+@font-face {
+    src: url("./Arial Bold.ttf");
+    fontFamily: ArialEmbedded;
+    fontWeight: bold;
+    advancedAntiAliasing: true;
+}
+
+
+.chartTitle {
+     fontWeight: bold;
+     fontSize: 20;
+     fontFamily: ArialEmbedded;
+     color: #333333;
+}
