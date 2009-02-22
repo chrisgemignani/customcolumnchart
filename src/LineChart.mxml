@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%">
+  <mx:Script>
+    <![CDATA[
+      import mx.collections.ArrayCollection;
+
+      [Bindable]
+      public var chartData:ArrayCollection;
+
+      [Bindable]
+      public var xField:String;
+
+      [Bindable]
+      public var yBtmSeries:String;
+
+      [Bindable]
+      public var yTopSeries:String;
+
+      [Bindable]
+      public var title:String;
+
+    ]]>
+  </mx:Script>
+
+  <mx:Style>
+    .title {
+      fontSize: 16;
+      font-weight: bold;
+      font-family: ArialEmbedded;
+      color: #333333;
+     }
+  </mx:Style>
+
+
+    <mx:Stroke id="bottomStroke" color="#aaaaaa" weight="4"/>
+    <mx:Stroke id="topStroke" color="#333333" weight="2"/>
+    <mx:Stroke id="simpleStroke" color="0xaaaaaa" weight="1"/>
+    <mx:Stroke id="zeroStroke" color="0x00ffffff" weight="0"/>
+    <mx:SolidColor id="bottomSeries" color="#aaaaaa" alpha="0.8"/>
+    <mx:SolidColor id="topSeries" color="#333333" alpha="0.8"/>
+
+    <mx:CategoryAxis id="xAxis" categoryField="{xField}" dataProvider="{chartData}" displayName="Quarter"/>
+    <mx:LinearAxis id="yAxis" displayName="Total Cost"/>
+
+    <mx:LineChart id="vendorLineChart" width="100%" height="100%" dataProvider="{chartData}" showDataTips="true" showDataTipTargets="true">
+        <mx:seriesFilters>
+           <mx:Array/>
+        </mx:seriesFilters>
+        <mx:horizontalAxisRenderer>
+            <mx:AxisRenderer axis="{xAxis}" axisStroke="{simpleStroke}" fontSize="10" fontFamily="ArialEmbedded" fontAntiAliasType="advanced"/>
+        </mx:horizontalAxisRenderer>
+        <mx:verticalAxisRenderer>
+            <mx:AxisRenderer axis="{yAxis}" axisStroke="{zeroStroke}" fontSize="10" fontFamily="ArialEmbedded" fontAntiAliasType="advanced"/>
+        </mx:verticalAxisRenderer>
+        <mx:series>
+            <mx:LineSeries yField="{yBtmSeries}" xField="{xField}" stroke="{bottomStroke}" lineStroke="{bottomStroke}" />
+            <mx:LineSeries yField="{yTopSeries}" xField="{xField}" stroke="{topStroke}" lineStroke="{topStroke}" />
+        </mx:series>
+    </mx:LineChart>
+
+</mx:Canvas>
