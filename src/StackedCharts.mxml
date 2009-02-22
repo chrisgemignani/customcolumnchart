@@ -1,30 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="100%" height="100%" xmlns:chart="*">
+<mx:Application
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:local="*"
+    layout="absolute"
+    width="100%"
+    height="100%"
+    creationComplete="init()"
+    >
 <mx:Script>
   <![CDATA[
-    import mx.collections.ArrayCollection;
-    [Bindable]
-    public var dp:ArrayCollection = new ArrayCollection([
-                                                          {x:"Jan", cost:100, profit:20},
-                                                          {x:"Feb", cost:120, profit:130},
-                                                          {x:"March", cost:80, profit:70},
-                                                          {x:"April", cost:10, profit:5},
-                                                          {x:"May", cost:90, profit:70},
-                                                          {x:"June", cost:50, profit:80}]);
+        import mx.collections.ArrayCollection;
+        import mx.rpc.events.ResultEvent;
+
+        private function init():void {
+            if (ExternalInterface.available) {
+                ExternalInterface.addCallback('setChartType', setChartType);
+                ExternalInterface.addCallback('setChartData', setChartData);
+                ExternalInterface.addCallback('setXField', setXField);
+                ExternalInterface.addCallback('setYField1', setYField1);
+                ExternalInterface.addCallback('setYField2', setYField2);
+                ExternalInterface.call("stackedChartIsReady");
+            }
+            setChartType('line');
+        }
+
+
+        public function setXField(s:String):void {
+            xField = s;
+        }
+
+        public function setYField1(s:String):void {
+            yField1 = s;
+        }
+
+        public function setYField2(s:String):void {
+            yField2 = s;
+        }
+
+        public function setChartData(arr:Array):void {
+            chartData = new ArrayCollection(arr);
+        }
+
+        public function setChartType(s:String):void {
+            chartType = s;
+        }
+
+        public function set chartType(s:String):void {
+            if (s == 'line') {
+                myStack.selectedChild = lineChart;
+            }
+            else {
+                myStack.selectedChild = nyTimesChart;
+            }
+        }
+
+        [Bindable]
+        public var chartData:ArrayCollection = new ArrayCollection([
+                                                              {x:"Jan", cost:100, profit:20},
+                                                              {x:"Feb", cost:120, profit:130},
+                                                              {x:"March", cost:80, profit:70},
+                                                              {x:"April", cost:10, profit:5},
+                                                              {x:"May", cost:90, profit:70},
+                                                              {x:"June", cost:50, profit:80}]);
+
+        [Bindable]
+        public var xField:String = 'x';
+
+        [Bindable]
+        public var yField1:String = 'cost';
+
+        [Bindable]
+        public var yField2:String = 'profit';
+
+
+
   ]]>
 </mx:Script>
 
-  <!-- Use column chart as a separate component -->
-  <chart:OverlaidColumnChart
-   id="colChart"
-   x="10" y="10"
-   width="380"
-   height="300"
+
+<mx:ViewStack id="myStack" width="100%" height="100%">
+   <local:NYTimesColumnChart
+   id="nyTimesChart"
+   width="100%"
+   height="100%"
    backgroundColor="#ffffff"
-   title="My Custom Title"
-   chartData="{dp}"
-   xField="x"
-   yBtmSeries="cost"
-   yTopSeries="profit"
-  />
+   chartData="{chartData}"
+   xField="{xField}"
+   yBtmSeries="{yField1}"
+   yTopSeries="{yField2}"
+   />
+   <local:LineChart
+   id="lineChart"
+   width="100%"
+   height="100%"
+   backgroundColor="#ffffff"
+   chartData="{chartData}"
+   xField="{xField}"
+   yBtmSeries="{yField1}"
+   yTopSeries="{yField2}"
+   />
+</mx:ViewStack>
+
 </mx:Application>
