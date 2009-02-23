@@ -33,7 +33,12 @@
     <mx:CategoryAxis id="xAxis" categoryField="{xField}" dataProvider="{chartData}" displayName="Quarter"/>
     <mx:LinearAxis id="yAxis" displayName="Total Cost"/>
 
-    <mx:LineChart id="vendorLineChart" width="100%" height="100%" dataProvider="{chartData}" showDataTips="true" showDataTipTargets="true">
+    <mx:LineChart id="vendorLineChart"
+        width="100%" height="100%"
+        dataProvider="{chartData}"
+        showDataTips="true"
+        showDataTipTargets="true"
+        dataTipRenderer="DataTipSkin">
         <mx:seriesFilters>
            <mx:Array/>
         </mx:seriesFilters>

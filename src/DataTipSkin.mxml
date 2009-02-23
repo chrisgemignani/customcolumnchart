@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    backgroundColor="0x333333"
+    backgroundAlpha="0.9"
+    color="0xffffff"
+    borderColor="0xeeeeee"
+    cornerRadius="5"
+    borderThickness="2.0"
+    borderStyle="solid"
+    paddingTop="5"
+    paddingBottom="5"
+    paddingRight="10"
+    paddingLeft="10"
+    verticalGap="-2"
+>
+    <mx:Label text="{_dayText}" width="100%" textAlign="left" fontFamily="ArialEmbedded" fontWeight="bold" fontSize="12" />
+    <mx:Label text="{_dollarText}" width="100%" textAlign="left" fontFamily="ArialEmbedded" fontSize="11" />
+    <mx:Script>
+        <![CDATA[
+            import mx.charts.ChartItem;
+            import mx.charts.series.items.LineSeriesItem;
+            import mx.charts.HitData;
+
+            [Bindable]
+            private var _dayText:String;
+
+            [Bindable]
+            private var _dollarText:String;
+
+            override public function set data(value:Object):void{
+                //we know to expect a HitData object from a chart, so let's cast it as such
+                //so that there aren't any nasty runtime surprises
+                var hd:HitData = value as HitData;
+
+                //Any HitData object carries a reference to the ChartItem that created it.
+                //This is where we need to know exactly what kind of Chartitem we're dealing with.
+                //Why? Because a pie chart isn't going to have an xValue and a yValue, but things
+                //like bar charts, column charts and, in our case, line charts will.
+                //var item:LineSeriesItem = hd.chartItem as LineSeriesItem;
+                var item:ChartItem = hd.chartItem as ChartItem;
+
+                //the xValue and yValue are returned as Objects. Let's cast them as strings, so
+                //that we can display them in the Label fields.
+                _dayText = String(item['xValue']);
+                _dollarText = String(item['yValue']);
+            }//end set data
+        ]]>
+    </mx:Script>
+</mx:VBox>

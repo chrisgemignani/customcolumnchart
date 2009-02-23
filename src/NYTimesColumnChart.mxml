@@ -25,7 +25,11 @@
   <mx:SolidColor id="bottomSeries" color="#aaaaaa" alpha="0.8"/>
   <mx:SolidColor id="topSeries" color="#333333" alpha="0.8"/>
 
-  <mx:CartesianChart dataProvider="{chartData}" showDataTips="true" width="100%" height="100%">
+  <mx:CartesianChart dataProvider="{chartData}"
+      width="100%" height="100%"
+      showDataTips="true"
+      showDataTipTargets="true"
+      dataTipRenderer="DataTipSkin">
     <mx:seriesFilters>
         <mx:Array/>
     </mx:seriesFilters>
