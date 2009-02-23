@@ -22,15 +22,6 @@
     ]]>
   </mx:Script>
 
-  <mx:Style>
-    .title {
-      fontSize: 16;
-      font-weight: bold;
-      font-family: ArialEmbedded;
-      color: #333333;
-     }
-  </mx:Style>
-
 
     <mx:Stroke id="bottomStroke" color="#aaaaaa" weight="4"/>
     <mx:Stroke id="topStroke" color="#333333" weight="2"/>
