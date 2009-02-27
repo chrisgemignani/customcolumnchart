@@ -1,121 +1,224 @@
-<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>
+    {title}
+</title>
 
-<!-- 
-Smart developers always View Source. 
 
-This application was built using Adobe Flex, an open source framework
-for building rich Internet applications that get delivered via the
-Flash Player or to desktops via Adobe AIR. 
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>    
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>    
 
-Learn more about Flex at http://flex.org 
-// -->
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<!--  BEGIN Browser History required section -->
-<link rel="stylesheet" type="text/css" href="history/history.css" />
-<!--  END Browser History required section -->
-
-<title>${title}</title>
-<script src="AC_OETags.js" language="javascript"></script>
-
-<!--  BEGIN Browser History required section -->
-<script src="history/history.js" language="javascript"></script>
-<!--  END Browser History required section -->
 
 <style>
-body { margin: 0px; overflow:hidden }
+#header {
+	background-color: #ffffff;
+	color: #4E453D;
+	border-bottom: 8px solid #4E453D;
+}
+#header h1 {
+    font-family: Palatino, Georgia, serif;
+    font-weight: normal;
+	color: #333;
+	font-size: 1.4em;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+h1 {
+    font-family: "Museo", "Helvetica Neue", Helvetica, Arial, sans;
+    color: #333;
+    font-size: 1.2em;
+}
+body {
+	font-family: "Helvetica Neue", Arial, Tahoma;
+	font-size: 100%;
+}
+.module h2, .module caption {
+	font-size: 20px;
+	color: #666;
+	background-image: none;
+    background-color: #fff;
+	border-bottom: 2px solid #ebebeb;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	padding: 0;
+}
+table {
+    border: none;
+}
+.module {
+    margin-top: 10px;
+}
+th {
+	color: #3A61A1;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: -0.05em;
+}
+table, thead, tbody, th, tr, td {
+	font-family: "Helvetica Neue", Arial, Tahoma;
+    border: 0px solid black;
+}
+thead th, tfoot td {
+    color:#666666;
+    font-size:13px;
+}
+.module table {
+    border-collapse: none;
+}
+div.breadcrumbs {
+    font-size: 14px;
+}
+
+thead {
+    font-size: 12px;
+}
+caption {
+	color: #3A61A1;
+    background-image: none;
+}
+h3 { 
+}
+#content-main {
+    border: 0px solid white;
+}
+#changelist {
+    border: 0px solid white;
+}
+
+#footer {
+    color: #999;
+    font-size: 80%;
+    text-align: center;
+    height: 100px;
+}
+
+.change-list .filtered { background:white; background-image: none !important; }
+#changelist-filter { position:absolute; top:0; right:0; z-index:1000; width:160px; border-left:1px solid #ddd; background:#cdc7c0; margin:0; }
+#changelist-filter h2 { color: #514737; margin-left: 10px; background-color: #cdc7c0 !important; font-size:15px; padding:0; border: 0px solid white; }
+#changelist-filter h3 { color: #514737; font-size:13px; margin-bottom:0; border-top:0px solid #ccc;}
+#changelist-filter ul { padding-left:0;margin-left:10px; }
+#changelist-filter li { list-style-type:none; margin-left:0; padding-left:0; }
+#changelist-filter a { color:#514737; }
+#changelist-filter a:hover { color:#036; }
+#changelist-filter li.selected { border-left:5px solid #847B6E; padding-left:5px;margin-left:-10px; }
+#changelist-filter li.selected a { color: #514737 !important; font-weight: bold; }
+
 </style>
-<script language="JavaScript" type="text/javascript">
-<!--
-// -----------------------------------------------------------------------------
-// Globals
-// Major version of Flash required
-var requiredMajorVersion = ${version_major};
-// Minor version of Flash required
-var requiredMinorVersion = ${version_minor};
-// Minor version of Flash required
-var requiredRevision = ${version_revision};
-// -----------------------------------------------------------------------------
-// -->
-</script>
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+
 </head>
 
-<body scroll="no">
-<script language="JavaScript" type="text/javascript">
-<!--
-// Version check for the Flash Player that has the ability to start Player Product Install (6.0r65)
-var hasProductInstall = DetectFlashVer(6, 0, 65);
 
-// Version check based upon the values defined in globals
-var hasRequestedVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+<body>
 
-if ( hasProductInstall && !hasRequestedVersion ) {
-	// DO NOT MODIFY THE FOLLOWING FOUR LINES
-	// Location visited after installation is complete if installation is required
-	var MMPlayerType = (isIE == true) ? "ActiveX" : "PlugIn";
-	var MMredirectURL = window.location;
-    document.title = document.title.slice(0, 47) + " - Flash Player Installation";
-    var MMdoctitle = document.title;
+<h5>Chart1</h5>   
+<div id="chart1">                            
+</div>  
+                                          
+<h5>Chart2</h5>
+<div id="chart2">
+</div>    
+    
+<h5>Chart3: Big test</h5>   
+<div id="chart3">                            
+</div>                                            
 
-	AC_FL_RunContent(
-		"src", "playerProductInstall",
-		"FlashVars", "MMredirectURL="+MMredirectURL+'&MMplayerType='+MMPlayerType+'&MMdoctitle='+MMdoctitle+"",
-		"width", "${width}",
-		"height", "${height}",
-		"align", "middle",
-		"id", "${application}",
-		"quality", "high",
-		"bgcolor", "${bgcolor}",
-		"name", "${application}",
-		"allowScriptAccess","sameDomain",
-		"type", "application/x-shockwave-flash",
-		"pluginspage", "http://www.adobe.com/go/getflashplayer"
-	);
-} else if (hasRequestedVersion) {
-	// if we've detected an acceptable version
-	// embed the Flash Content SWF when all tests are passed
-	AC_FL_RunContent(
-			"src", "${swf}",
-			"width", "${width}",
-			"height", "${height}",
-			"align", "middle",
-			"id", "${application}",
-			"quality", "high",
-			"bgcolor", "${bgcolor}",
-			"name", "${application}",
-			"allowScriptAccess","sameDomain",
-			"type", "application/x-shockwave-flash",
-			"pluginspage", "http://www.adobe.com/go/getflashplayer"
-	);
-  } else {  // flash is too old or we can't detect the plugin
-    var alternateContent = 'Alternate HTML content should be placed here. '
-  	+ 'This content requires the Adobe Flash Player. '
-   	+ '<a href=http://www.adobe.com/go/getflash/>Get Flash</a>';
-    document.write(alternateContent);  // insert non-flash content
-  }
-// -->
+<h5>Chart4: Small test</h5>
+<div id="chart4">
+</div>
+
+<h5>Chart5: Change data fields</h5>
+<div id="chart5">
+</div>
+
+
+<script type="text/javascript">
+
+function stackedChartIsReady() {
+    data1 = [
+           {'x':'Q1 2006', 'y1':1182.6, 'y2':1169.4},
+           {'x':'Q2 2006', 'y1':1114.3, 'y2':1144.4},
+           {'x':'Q3 2006', 'y1':1141.4, 'y2':1195.9},
+           {'x':'Q4 2006', 'y1':1099.1, 'y2':1367.2},
+           {'x':'Q1 2007', 'y1':508.8, 'y2':2609.3},
+           {'x':'Q2 2007', 'y1':462.8, 'y2':2102.1},
+           {'x':'Q3 2007', 'y1':423.6, 'y2':1640.5},
+           {'x':'Q4 2007', 'y1':417.9, 'y2':1506.6}
+    ];
+    
+    data2 = [
+           {'x':'Q1 2006', 'y1':26.00, 'y2':25.64},
+           {'x':'Q2 2006', 'y1':25.44, 'y2':25.58},
+           {'x':'Q3 2006', 'y1':25.54, 'y2':25.50},
+           {'x':'Q4 2006', 'y1':25.14, 'y2':26.06},
+           {'x':'Q1 2007', 'y1':23.53, 'y2':30.51},
+           {'x':'Q2 2007', 'y1':23.10, 'y2':28.30},
+           {'x':'Q3 2007', 'y1':22.91, 'y2':26.99},
+           {'x':'Q4 2007', 'y1':22.87, 'y2':26.53}
+    ];
+    
+    data3 = [
+           {'x':'apple',  'y1':0.012,  'y2': 0.005 },
+           {'x':'banana',  'y1':0.024,  'y2': 0.011 },
+           {'x':'carrot',  'y1':0.027,  'y2': 0.014 },
+           {'x':'donut',  'y1':0.068,  'y2': 0.034 },
+           {'x':'elephant', 'y1':0.175, 'y2': 0.084 },
+           {'x':'gorilla', 'y1':0.219, 'y2': 0.128 },
+           {'x':'humus', 'y1':0.240, 'y2': 0.218 },
+           {'x':'igloo',   'y1':0.235, 'y2': 0.506 }
+    ];
+           
+    data4 = [
+           {'x':'apple',  'y1':0.012,  'y2': 0.005 },
+           {'x':'banana',  'y1':0.024,  'y2': 0.011 },
+           {'x':'carrot',  'y1':0.027,  'y2': 0.014 }
+    ];
+           
+    data5 = [
+           {'x':'&lt; 1',  'cost':0.279,  'profit': 0.569 },
+           {'x':'&lt; 2',  'cost':0.156,  'profit': 0.438 },
+           {'x':'&lt; 3',  'cost':0.125,  'profit': 0.320 }
+    ];
+           
+    setTimeout(function() {
+        document.getElementById("chart1").setChartType('line');   
+        document.getElementById("chart3").setChartType('line');   
+
+        document.getElementById("chart1").setChartData(data1);   
+        document.getElementById("chart2").setChartData(data2);   
+        document.getElementById("chart3").setChartData(data3);   
+        document.getElementById("chart4").setChartData(data4);   
+
+        // change the datafields
+        document.getElementById("chart5").setChartData(data5);   
+        document.getElementById("chart5").setYField1('cost');
+        document.getElementById("chart5").setYField2('profit');
+    }, 1000);         
+}
+
+// example of how to use flashvars
+// var flashvars = {loginId: "4592", dataSvcRootURL: "https://url.sample.com"};
+// var params = {};
+// params.menu = "false";
+// params.allowscriptaccess = "sameDomain";
+// var attributes = {};
+// attributes.id = "app";
+// attributes.name = "app";
+// swfobject.embedSWF("assets/sample.swf", "appWrapper", "1150", "900", "9.0.124", false, flashvars, params, attributes);
+
+// set the sizes when embedding
+swfobject.embedSWF("${swf}.swf", "chart1", "400", "200", "9.0.124");
+swfobject.embedSWF("${swf}.swf", "chart2", "400", "200", "9.0.124");
+swfobject.embedSWF("${swf}.swf", "chart3", "600", "350", "9.0.124");
+swfobject.embedSWF("${swf}.swf", "chart4", "150", "130", "9.0.124");
+swfobject.embedSWF("${swf}.swf", "chart5", "300", "200", "9.0.124");
 </script>
-<noscript>
-  	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-			id="${application}" width="${width}" height="${height}"
-			codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
-			<param name="movie" value="${swf}.swf" />
-			<param name="quality" value="high" />
-			<param name="bgcolor" value="${bgcolor}" />
-			<param name="allowScriptAccess" value="sameDomain" />
-			<embed src="${swf}.swf" quality="high" bgcolor="${bgcolor}"
-				width="${width}" height="${height}" name="${application}" align="middle"
-				play="true"
-				loop="false"
-				quality="high"
-				allowScriptAccess="sameDomain"
-				type="application/x-shockwave-flash"
-				pluginspage="http://www.adobe.com/go/getflashplayer">
-			</embed>
-	</object>
-</noscript>
+    
+
 </body>
 </html>
