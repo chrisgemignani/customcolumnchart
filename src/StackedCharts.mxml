@@ -26,7 +26,20 @@
                 ExternalInterface.addCallback('setYField2', setYField2);
                 ExternalInterface.call("stackedChartIsReady");
             }
+
+            const flashvars:Object = Application.application.parameters;
         }
+
+//        /*
+//* Invoke the class constructor to initialize
+//* the data service parameters using flashvars.
+//*/
+//classConstructor();
+//private static function classConstructor():void {
+//const flashvars:Object = Application.application.parameters;
+//loginId = flashvars.hasOwnProperty("loginId") ? flashvars.loginId : null;
+//dataSvcRootURL = flashvars.hasOwnProperty("dataSvcRootURL") ? flashvars.dataSvcRootURL : null;
+//}
 
 
         public function setXField(s:String):void {
@@ -65,10 +78,10 @@
         public var xField:String = 'x';
 
         [Bindable]
-        public var yField1:String = 'cost';
+        public var yField1:String = 'y1';
 
         [Bindable]
-        public var yField2:String = 'profit';
+        public var yField2:String = 'y2';
 
       ]]>
     </mx:Script>
