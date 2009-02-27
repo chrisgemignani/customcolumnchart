@@ -1,6 +1,8 @@
 An example of how to create custom charts using Flex and embed them in a web page.
 
-For an example of how to use these charts, see...
+For an example of how to use these charts in a web page, build the project and view source
+on the resulting HTML. Alternatively, you can check out http://media.juiceanalytics.com/downloads/StackedCharts.html.
+This may not be up-to-date.
 
 Soon, we will publish an example of how to create charts using Juicekit. One of the benefits
 of using Juicekit is that the resulting chart swfs will be much smaller as the entire
